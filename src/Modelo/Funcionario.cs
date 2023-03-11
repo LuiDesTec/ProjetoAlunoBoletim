@@ -1,7 +1,18 @@
-﻿namespace ProjetoEducar.Modelo
+﻿using ProjetoEducar.Interface;
+
+namespace ProjetoEducar.Modelo
 {
-    public class Funcionario
+    public class Funcionario : Pessoa, IPessoa, IFuncao
     {
-        public string nome { get; set; }
+        public Funcionario(string nome, string sexo, DateTime datanascimento)
+     : base(nome, sexo, datanascimento)
+        {
+            this.Nome = "Funcionario(a) " + nome;
+        }
+
+        public string GetFuncao()
+        {
+            return "Funcionario";
+        }
     }
 }

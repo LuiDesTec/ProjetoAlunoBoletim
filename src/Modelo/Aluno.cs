@@ -1,9 +1,24 @@
 ﻿namespace ProjetoEducar.Modelo
 {
-    public class Aluno
+    public class Aluno : Pessoa
     {
-        public string Nome { get; set; }
-        public int Idade { get; private set; }
-        public BoletimNotas boletim { get; set; }
+       
+    
+        public Aluno(string nome, string sexo, DateTime datanascimento)
+            : base(nome, sexo, datanascimento)
+        {
+        }
+
+        public string Matricula { get; set; }
+
+
+        public BoletimNota boletim { get; set; }
+
+        public void SetMatricula(String Matricula)
+        {
+            this.Matricula = Matricula;
+
+        }
+
     }
 }
