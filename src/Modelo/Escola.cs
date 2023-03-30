@@ -7,6 +7,8 @@ namespace ProjetoEducar.Modelo
         public int Id { get; set; }
         public string Nome { get; private set; }
 
+        public Endereco Enderecos { get; private set; }
+
         public List<Pessoa> Alunos { get; private set; }
 
        

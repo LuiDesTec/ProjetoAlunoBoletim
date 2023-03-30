@@ -30,7 +30,7 @@ namespace ProjetoEducar.Infra.Dados
             modelbuilder.Entity<Funcionario>().Property(n => n.DataDeNascimento);
            
             modelbuilder.Entity<Escola>().Property(n => n.Nome).HasMaxLength(100).IsRequired();
-            //modelbuilder.Entity<Escola>().Property(n => n.Enderecos).HasMaxLength(100);
+           
            
             modelbuilder.Entity<Matricula>().Property(n => n.Numero).IsRequired();
        }
