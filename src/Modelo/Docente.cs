@@ -4,18 +4,20 @@ namespace ProjetoEducar.Modelo
 {
     public class Docente : Pessoa, IPessoa, IFuncao
     {
+        
         public Curso Curso { get; set; }
 
+        public Docente() { }
 
-        public Docente(string nome, string sexo, DateTime datanascimento)
-            : base(nome, sexo, datanascimento)
+        public Docente(int id, string nome, string sexo,
+            DateTime datanascimento, Curso curso) : base(id, nome,sexo, datanascimento)
         {
-            this.Nome = "Professor(a) " + nome;
+            Curso= curso;
         }
-
         public string GetFuncao()
         {
             return "Professor(a) ";
         }
     }
 }
+

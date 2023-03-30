@@ -2,6 +2,7 @@
 {
     public class BoletimNota
     {
+        public int Id { get; set; }
         public BoletimNota()
         {
             Disciplinas = new List<Disciplina>();

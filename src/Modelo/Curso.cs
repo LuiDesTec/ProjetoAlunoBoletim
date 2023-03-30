@@ -2,6 +2,7 @@
 {
     public class Curso
     {
+        public int Id { get; set; }
         public List<Disciplina> Disciplinas { get; set; } = new List<Disciplina>();
 
         public void setDisciplinas(Disciplina disciplina)
