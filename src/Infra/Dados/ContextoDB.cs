@@ -23,6 +23,9 @@ namespace ProjetoEducar.Infra.Dados
 
        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
+            modelbuilder.Entity<Aluno>().Property(n => n.Sexo).IsRequired();
+            modelbuilder.Entity<Aluno>().Property(n => n.Nome).IsRequired();
+
             modelbuilder.Entity<Pessoa>().Property(n => n.Nome).IsRequired();
             modelbuilder.Entity<Pessoa>().Property(n => n.DataDeNascimento).IsRequired();
             

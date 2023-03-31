@@ -9,16 +9,21 @@ namespace ProjetoEducar.EndPoints.EndAlunos
         public static string Template => "/alunosUrl";
         public static string[] Methods => new string[] { HttpMethods.Post.ToString()};
         public static Delegate Handle => Action;
-
+        private AlunoPost() { }
         public static IResult Action(AlunoRequest alunoRequest, ContextoDB contexto)
         {
             var aluno = new Aluno
             {
-              Nome = alunoRequest.Nome
+              Nome = alunoRequest.Nome,
+              Sexo = "Teste"
             };
             contexto.Alunos.Add(aluno);
+           
             contexto.SaveChanges();
-            return Results.Ok("ok");
+            return Results.Created($"/Aluno/ {aluno.Id}", aluno.Id);
+            
+            
+            
         }
 
 
