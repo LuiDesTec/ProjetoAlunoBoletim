@@ -8,7 +8,7 @@ namespace ProjetoEducar.Infra.Dados
     {
         public ContextoDB(DbContextOptions<ContextoDB> options) : base(options)
         { }
-        public DbSet<Pessoa> Alunos { get; set; }
+        public DbSet<Aluno> Alunos { get; set; }
         public DbSet<BoletimNota> Boletins { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
@@ -16,26 +16,26 @@ namespace ProjetoEducar.Infra.Dados
         public DbSet<Endereco> Enderecos { get; set; }
         public DbSet<Matricula> Matriculas{ get; set; }
         public DbSet<Escola> Escolas { get; set; }
-        public DbSet<EtapaAvaliacao> EpataAvaliações { get; set; }
+        public DbSet<EtapaAvaliacao> EtapaAvaliacoes { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
 
 
        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            modelbuilder.Entity<Aluno>().Property(n => n.Sexo).IsRequired();
-            modelbuilder.Entity<Aluno>().Property(n => n.Nome).IsRequired();
+            modelbuilder.Entity<Aluno>().Property(a => a.Sexo).IsRequired();
+            modelbuilder.Entity<Aluno>().Property(a => a.Nome).IsRequired();
 
-            modelbuilder.Entity<Pessoa>().Property(n => n.Nome).IsRequired();
-            modelbuilder.Entity<Pessoa>().Property(n => n.DataDeNascimento).IsRequired();
+            modelbuilder.Entity<Pessoa>().Property(p => p.Nome).IsRequired();
+            modelbuilder.Entity<Pessoa>().Property(p => p.DataDeNascimento).IsRequired();
             
-            modelbuilder.Entity<Funcionario>().Property(n => n.Nome).IsRequired();
-            modelbuilder.Entity<Funcionario>().Property(n => n.DataDeNascimento);
+            modelbuilder.Entity<Funcionario>().Property(f => f.Nome).IsRequired();
+            modelbuilder.Entity<Funcionario>().Property(f => f.DataDeNascimento);
            
-            modelbuilder.Entity<Escola>().Property(n => n.Nome).HasMaxLength(100).IsRequired();
+            modelbuilder.Entity<Escola>().Property(e => e.Nome).HasMaxLength(100).IsRequired();
            
            
-            modelbuilder.Entity<Matricula>().Property(n => n.Numero).IsRequired();
+            modelbuilder.Entity<Matricula>().Property(m => m.Numero).IsRequired();
        }
 
     }

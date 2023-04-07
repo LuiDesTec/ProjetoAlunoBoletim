@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using ProjetoEducar.Infra.Dados;
 
@@ -10,9 +11,11 @@ using ProjetoEducar.Infra.Dados;
 namespace ProjetoEducar.Migrations
 {
     [DbContext(typeof(ContextoDB))]
-    partial class ContextoDBModelSnapshot : ModelSnapshot
+    [Migration("20230403040300_Addnovascolunas")]
+    partial class Addnovascolunas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
