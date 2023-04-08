@@ -8,7 +8,7 @@ namespace ProjetoEducar.Infra.Dados
     {
         public ContextoDB(DbContextOptions<ContextoDB> options) : base(options)
         { }
-        public DbSet<Aluno> Alunos { get; set; }
+        public DbSet<Pessoa> Alunos { get; set; }
         public DbSet<BoletimNota> Boletins { get; set; }
         public DbSet<Curso> Cursos { get; set; }
         public DbSet<Disciplina> Disciplinas { get; set; }
