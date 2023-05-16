@@ -3,11 +3,12 @@
     public class BoletimNota
     {
         public int Id { get; set; }
+        public List<Disciplina> Disciplinas { get; set; }
         public BoletimNota()
         {
             Disciplinas = new List<Disciplina>();
         }
-        public List<Disciplina> Disciplinas { get; set; }
+      
 
         public string getListaDisciplinas()
         {

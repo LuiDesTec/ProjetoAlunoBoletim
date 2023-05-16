@@ -2,23 +2,19 @@
 {
     public class Aluno : Pessoa
     {
-        private BoletimNota? boletimNota;
 
-        public BoletimNota boletim { get; set; }
-        public Matricula Matriculas { get; set; }
-        public Aluno(int id, string nome, string sexo, DateTime datanascimento)
+        public BoletimNota Boletim { get; set; }
+       
+        public Aluno() { }
+       
+
+       
+        public Aluno(int id, string nome, string sexo, DateTime datanascimento, BoletimNota boletim)
             : base(id, nome, sexo, datanascimento)
         {
-            boletim = boletimNota;
+            Boletim = boletim;
+           
         }
-        
-
-        public Aluno() { }
-        public void SetMatricula (Matricula Matricula)
-        {
-            this.Matriculas = Matricula;
-
-        }
-       
+     
     }
 }

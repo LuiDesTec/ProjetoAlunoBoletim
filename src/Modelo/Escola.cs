@@ -7,9 +7,10 @@ namespace ProjetoEducar.Modelo
         public int Id { get; set; }
         public string Nome { get; private set; }
 
-        public Endereco Enderecos { get; private set; } = new Endereco();
+        public Endereco Enderecos { get; private set; }
 
         public List<Pessoa> Alunos { get; private set; }
+
         public List<Matricula> Matriculas { get; private set; } = new List<Matricula>();
         public Escola() { }
 
@@ -28,7 +29,7 @@ namespace ProjetoEducar.Modelo
         {
             this.Nome = nome;
             this.Alunos = new List<Pessoa>();
-           
+         
         }
 
 

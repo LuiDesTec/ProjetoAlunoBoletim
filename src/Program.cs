@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using ProjetoEducar.EndPoints.EndAlunos;
 using ProjetoEducar.Infra.Dados;
-using System;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
