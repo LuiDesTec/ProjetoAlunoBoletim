@@ -16,10 +16,8 @@ namespace ProjetoEducar.EndPoints.EndAlunos
 
             if (!aluno.IsValid)
             {
-                var erros = aluno.Notifications
-                    .GroupBy(k => k.Key)
-                    .ToDictionary(k => k.Key, k => k.Select(x => x.Message).ToArray());
-                return Results.ValidationProblem(erros);
+                
+                return Results.ValidationProblem(aluno.Notifications.ConvertToProblemDetails());
             }
             contexto.Alunos.Add(aluno);
             contexto.SaveChanges();

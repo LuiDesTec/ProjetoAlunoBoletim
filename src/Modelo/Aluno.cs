@@ -6,19 +6,15 @@ namespace ProjetoEducar.Modelo
     public class Aluno : Pessoa
     {
 
-        public BoletimNota Boletim { get; set; }
+        public BoletimNota Boletim { get; private set; }
        
         public Aluno() { }
 
         public Aluno(string nome)
         {
-            var contrato = new Contract<Aluno>()
-               .IsNotNullOrEmpty(nome, "Nome")
-               .IsGreaterOrEqualsThan(nome,4,"Nome");
-              
-            AddNotifications(contrato);
-            Nome = nome;
            
+            Nome = nome;
+            Validar();
         }
 
         public Aluno(int id, string nome, string sexo, DateTime datanascimento, BoletimNota boletim)
@@ -27,6 +23,19 @@ namespace ProjetoEducar.Modelo
            
             Boletim = boletim;
            
+        }
+        private void Validar()
+        {
+            var contrato = new Contract<Aluno>()
+               .IsNotNullOrEmpty(Nome, "Nome")
+               .IsGreaterOrEqualsThan(Nome, 4, "Nome");
+
+            AddNotifications(contrato);
+        }
+        public void EdiInfo(string nome)
+        {
+            Nome = nome;
+            Validar();
         }
 
        

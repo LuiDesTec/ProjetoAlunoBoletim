@@ -16,7 +16,10 @@ namespace ProjetoEducar.EndPoints.EndAlunos
             var aluno = contexto.Alunos.Where(a => a.Id == id).FirstOrDefault();
             if (aluno == null)
                 return Results.NotFound();
-            aluno.Nome = alunoRequest.Nome;
+
+            aluno.EdiInfo(alunoRequest.Nome);
+            if (!aluno.IsValid)
+                return Results.ValidationProblem(aluno.Notifications.ConvertToProblemDetails());
 
             contexto.SaveChanges();
             return Results.Ok();
