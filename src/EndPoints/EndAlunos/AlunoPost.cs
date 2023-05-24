@@ -12,12 +12,11 @@ namespace ProjetoEducar.EndPoints.EndAlunos
 
         public static IResult Action(AlunoRequest alunoRequest, ContextoDB contexto)
         {
-            var aluno = new Aluno
-            {
-              Nome = alunoRequest.Nome,
-              Sexo = "Testando",
-             
-            };
+            var aluno = new Aluno(alunoRequest.Nome);
+           
+            if(!aluno.IsValid)
+                return Results.BadRequest(aluno.Notifications);
+            
             contexto.Alunos.Add(aluno);
             contexto.SaveChanges();
             return Results.Created($"/Aluno/ {aluno.Id}", aluno.Id);

@@ -1,8 +1,9 @@
-﻿using ProjetoEducar.Interface;
+﻿using Flunt.Notifications;
+using ProjetoEducar.Interface;
 
 namespace ProjetoEducar.Modelo
 {
-    public class Pessoa : IPessoa
+    public class Pessoa : Notifiable<Notification>, IPessoa
     {
         public int Id { get; set; }
         public string Nome { get; set; }

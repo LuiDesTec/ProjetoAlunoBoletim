@@ -1,6 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Flunt.Notifications;
+using Microsoft.EntityFrameworkCore;
 using ProjetoEducar.Modelo;
 using System;
+using System.Reflection.Emit;
 
 namespace ProjetoEducar.Infra.Dados
 {
@@ -23,7 +25,10 @@ namespace ProjetoEducar.Infra.Dados
 
        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-
+            modelbuilder.Entity<Pessoa>()
+            .Ignore(a => a.Notifications);
+            base.OnModelCreating(modelbuilder);
+            
             modelbuilder.Entity<Aluno>().Property(a => a.Sexo).IsRequired();
             modelbuilder.Entity<Aluno>().Property(a => a.Nome).IsRequired();
 

@@ -26,6 +26,8 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.MapMethods(AlunoPost.Template, AlunoPost.Methods, AlunoPost.Handle);
+app.MapMethods(AlunoGetAll.Template, AlunoGetAll.Methods, AlunoGetAll.Handle);
+app.MapMethods(AlunoPut.Template, AlunoPut.Methods, AlunoPut.Handle);
 
 app.Run();
 

@@ -4,6 +4,7 @@ namespace ProjetoEducar.Modelo
 {
     public class Docente : Pessoa, IPessoa, IFuncao
     {
+       
         
         public Curso Curso { get; set; }
 
