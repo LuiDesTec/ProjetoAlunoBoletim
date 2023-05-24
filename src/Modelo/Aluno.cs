@@ -13,7 +13,8 @@ namespace ProjetoEducar.Modelo
         public Aluno(string nome)
         {
             var contrato = new Contract<Aluno>()
-               .IsNotNullOrEmpty(nome, "Nome");
+               .IsNotNullOrEmpty(nome, "Nome")
+               .IsGreaterOrEqualsThan(nome,4,"Nome");
               
             AddNotifications(contrato);
             Nome = nome;

@@ -14,6 +14,8 @@ namespace ProjetoEducar.EndPoints.EndAlunos
         public static IResult Action([FromRoute] int id, AlunoRequest alunoRequest, ContextoDB contexto)
         {
             var aluno = contexto.Alunos.Where(a => a.Id == id).FirstOrDefault();
+            if (aluno == null)
+                return Results.NotFound();
             aluno.Nome = alunoRequest.Nome;
 
             contexto.SaveChanges();

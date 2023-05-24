@@ -13,10 +13,14 @@ namespace ProjetoEducar.EndPoints.EndAlunos
         public static IResult Action(AlunoRequest alunoRequest, ContextoDB contexto)
         {
             var aluno = new Aluno(alunoRequest.Nome);
-           
-            if(!aluno.IsValid)
-                return Results.BadRequest(aluno.Notifications);
-            
+
+            if (!aluno.IsValid)
+            {
+                var erros = aluno.Notifications
+                    .GroupBy(k => k.Key)
+                    .ToDictionary(k => k.Key, k => k.Select(x => x.Message).ToArray());
+                return Results.ValidationProblem(erros);
+            }
             contexto.Alunos.Add(aluno);
             contexto.SaveChanges();
             return Results.Created($"/Aluno/ {aluno.Id}", aluno.Id);
