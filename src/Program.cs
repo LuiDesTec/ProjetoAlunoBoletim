@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEducar.EndPoints.EndAlunos;
 using ProjetoEducar.Infra.Dados;
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 string mySqlConnection =
               builder.Configuration.GetConnectionString("EducandarioData");
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ContextoDB>();
 
 builder.Services.AddDbContextPool<ContextoDB>(options =>
                 options.UseMySql(mySqlConnection,

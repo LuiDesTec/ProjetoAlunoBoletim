@@ -1,4 +1,6 @@
 ﻿using Flunt.Notifications;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using ProjetoEducar.Modelo;
 using System;
@@ -6,7 +8,7 @@ using System.Reflection.Emit;
 
 namespace ProjetoEducar.Infra.Dados
 {
-    public class ContextoDB : DbContext
+    public class ContextoDB : IdentityDbContext<IdentityUser>
     {
         public ContextoDB(DbContextOptions<ContextoDB> options) : base(options)
         { }
@@ -25,6 +27,7 @@ namespace ProjetoEducar.Infra.Dados
 
        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
+            //base.OnModelCreating(modelbuilder);
             modelbuilder.Entity<Pessoa>()
             .Ignore(a => a.Notifications);
             base.OnModelCreating(modelbuilder);
