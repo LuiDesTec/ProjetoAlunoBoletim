@@ -33,7 +33,7 @@ app.MapMethods(AlunoPost.Template, AlunoPost.Methods, AlunoPost.Handle);
 app.MapMethods(AlunoGetAll.Template, AlunoGetAll.Methods, AlunoGetAll.Handle);
 app.MapMethods(AlunoPut.Template, AlunoPut.Methods, AlunoPut.Handle);
 app.MapMethods(FuncionarioPost.Template, FuncionarioPost.Methods, FuncionarioPost.Handle);
-
+app.MapMethods(FuncionarioGetAll.Template, FuncionarioGetAll.Methods, FuncionarioGetAll.Handle);
 
 app.Run();
 
