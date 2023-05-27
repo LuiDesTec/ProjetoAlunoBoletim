@@ -1,4 +1,4 @@
-﻿namespace ProjetoEducar.EndPoints.EndAlunos
+﻿namespace ProjetoEducar.EndPoints
 {
     public class AlunoRequest
     {

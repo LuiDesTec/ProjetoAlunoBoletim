@@ -27,7 +27,7 @@ namespace ProjetoEducar.Infra.Dados
 
        protected override void OnModelCreating(ModelBuilder modelbuilder)
         {
-            //base.OnModelCreating(modelbuilder);
+            
             modelbuilder.Entity<Pessoa>()
             .Ignore(a => a.Notifications);
             base.OnModelCreating(modelbuilder);

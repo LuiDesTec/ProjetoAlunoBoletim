@@ -1,8 +1,9 @@
-﻿using ProjetoEducar.Infra.Dados;
+﻿
+using ProjetoEducar.Infra.Dados;
 using ProjetoEducar.Modelo;
 using System.ComponentModel;
 
-namespace ProjetoEducar.EndPoints.EndAlunos
+namespace ProjetoEducar.EndPoints
 {
     public class AlunoGetAll
     {

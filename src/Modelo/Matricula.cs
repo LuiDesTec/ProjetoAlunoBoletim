@@ -6,7 +6,7 @@
         public int Numero { get; private set; }
         public Pessoa Aluno { get; set; }
         public Curso Curso { get; set; }
-
+        
         public void Alunocursos(Pessoa aluno, Curso curso)
         {
             this.Aluno = aluno;

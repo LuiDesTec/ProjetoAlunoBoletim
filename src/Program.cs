@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ProjetoEducar.EndPoints.EndAlunos;
+using ProjetoEducar.EndPoints;
+
 using ProjetoEducar.Infra.Dados;
 
 
@@ -31,6 +32,8 @@ app.UseHttpsRedirection();
 app.MapMethods(AlunoPost.Template, AlunoPost.Methods, AlunoPost.Handle);
 app.MapMethods(AlunoGetAll.Template, AlunoGetAll.Methods, AlunoGetAll.Handle);
 app.MapMethods(AlunoPut.Template, AlunoPut.Methods, AlunoPut.Handle);
+app.MapMethods(FuncionarioPost.Template, FuncionarioPost.Methods, FuncionarioPost.Handle);
+
 
 app.Run();
 
