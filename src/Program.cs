@@ -9,12 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 string mySqlConnection =
               builder.Configuration.GetConnectionString("EducandarioData");
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ContextoDB>();
-
 builder.Services.AddDbContextPool<ContextoDB>(options =>
                 options.UseMySql(mySqlConnection,
                       ServerVersion.AutoDetect(mySqlConnection)));
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ContextoDB>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
