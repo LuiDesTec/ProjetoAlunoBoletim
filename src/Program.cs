@@ -15,6 +15,7 @@ builder.Services.AddDbContextPool<ContextoDB>(options =>
 
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ContextoDB>();
+builder.Services.AddScoped<QueryUsuarios>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

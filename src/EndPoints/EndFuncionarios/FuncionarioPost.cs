@@ -36,6 +36,4 @@ public class FuncionarioPost
         
         return Results.Created($"/Funcionario/ {user.Id}", user.Id);
     }
-
-
 }
