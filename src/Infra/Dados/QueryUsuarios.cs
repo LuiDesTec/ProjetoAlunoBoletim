@@ -1,10 +1,11 @@
 ﻿using Dapper;
 using MySqlConnector;
+using ProjetoEducar.EndPoints;
 using ProjetoEducar.Modelo;
 
-namespace ProjetoEducar.EndPoints
+namespace ProjetoEducar.Infra.Dados
 {
-   
+
     public class QueryUsuarios
     {
         private readonly IConfiguration configuration;
@@ -18,13 +19,13 @@ namespace ProjetoEducar.EndPoints
         {
             var db = new MySqlConnection(configuration.GetConnectionString("EducandarioData"));
             var query =
-            
+
               @"select Email, ClaimValue as Nome
             from AspNetUsers u 
             inner join AspnetUserClaims c             
             on u.id = c.UserId and claimtype = 'Nome'
             order by nome";
-            
+
             return db.Query<FuncionarioResponse>(
                 query,
                 new { page, rows }

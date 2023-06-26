@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using Microsoft.AspNetCore.Identity;
 using MySqlConnector;
+using ProjetoEducar.Infra.Dados;
 using System.Security.Claims;
 
 namespace ProjetoEducar.EndPoints;
